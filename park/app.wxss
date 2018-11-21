@@ -1,0 +1,18 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+} 
+
+.tip {
+  font-size: 28rpx;
+  margin: 20rpx 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.page{
+  height: 100%
+  
+}

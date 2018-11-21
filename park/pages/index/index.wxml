@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+<cover-view class="titleBar">  Welcome   </cover-view>
+<image src="/images/index.png" class='image' bindtap='devMode'></image>
+<p class="head">上海科技大学</p>
+<p class="head">地下车库导航</p>
+  <view class="list">
+    <button bindtap="getLost">扫码记录当前位置</button>
+    <button bindtap="checkMap">查看地图</button>
+    <button bindtap="deleteRecord">删除记录的位置</button>
+    <button bindtap='recordWifi' hidden='{{!devMode}}'>记录wifi信息</button>
+    <button bindtap='output' hidden='{{!devMode}}'>输出</button>
+    <button bindtap='test' hidden='{{!devMode}}'>测试</button>
+  </view>
+</view>

@@ -1,0 +1,61 @@
+<import src="../common/head.wxml" />
+<import src="../common/foot.wxml" />
+
+<view class="container">
+  <template is="head"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells__title">出发地点</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">当前选择</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange0" value="{{start_index}}" range="{{start}}">
+              <view class="weui-input">{{start[start_index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+
+
+      <view class="weui-cells__title">目标地点</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">当前选择</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange1" value="{{end_index}}" range="{{end}}">
+              <view class="weui-input">{{end[end_index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class='weui-cells__title'>不知道自己在哪里？ 找找附近的二维码吧</view>
+
+
+      <view class="weui-cells__title">您的当前位置是</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+        <view class="weui-cell__bd">{{code2location[scan_result]}}</view>
+        </view>
+      </view>
+
+     
+
+    </view>
+  </view>
+
+
+
+  <view class="btn-area">
+    <button type="primary" bindtap="scanCode">扫一扫</button>
+    <button type="primary" bindtap="toMap">开始导航</button>
+  </view>
+
+</view>

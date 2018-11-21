@@ -1,0 +1,55 @@
+<!--scale.wxml-->
+<import src="../../../common/head.wxml" />
+<import src="../../../common/foot.wxml" />
+<view class="container">
+<canvas class='map' canvas-id="firstCanvas"
+            disable-scroll="false"
+            bindtouchstart="touchStart"
+            bindtouchmove="touchMove"
+            bindtouchend="touchEnd"
+            >
+    <cover-view class="titleBar" bindtap='home'>  home   </cover-view>
+    <cover-image src='/images/boxshadow.png' class='flagshadow'></cover-image>
+    <cover-image src="/images/yellow.png" class='flag' style='bottom: 400rpx;'></cover-image>
+    <cover-view class='tex' style='bottom: 400rpx;'>停车位</cover-view>
+    <cover-image src="/images/green.png" class='flag' style='bottom: 450rpx;'></cover-image>
+    <cover-view class='tex' style='bottom: 450rpx;'>庭院</cover-view>
+
+
+    <cover-image src="/images/shadowBar.png" class="titleShadow" hidden='{{hidden1}}'>     </cover-image>
+    <cover-image src="/images/boxshadow.png" class="BoxShadow" hidden='{{hidden1}}'>     </cover-image>
+    <cover-view class="BoxBottom"  hidden='{{hidden1}}'>扫码获取当前位置信息</cover-view>
+    <cover-view class="QRscan" bindtap='scanCode'  hidden='{{hidden1}}'>
+      <cover-image src="/images/location.png" class="target icon"></cover-image> 
+    </cover-view>
+
+
+    <cover-image src="/images/shadowBar.png" class="titleShadow" hidden='{{hidden2}}'>     </cover-image>
+    <cover-image src="/images/boxshadow.png" class="BoxShadow" hidden='{{hidden2}}'>     </cover-image>
+    <cover-view class="BoxBottom" style='bottom: 28vw' hidden='{{hidden2}}'>你目前位于位置 {{scan_result}}</cover-view>
+    <cover-view class="BoxBottom" hidden='{{hidden2}}'>要去哪？</cover-view>
+    <cover-view class="QRscan" bindtap='whereToGo' hidden='{{hidden2}}'><cover-image src="/images/location.png" class="target icon"></cover-image>  </cover-view>
+
+
+    <template is="head" data="{{title: 'scroll-cover-view'}}"/>
+
+    <cover-view class='roll' hidden='{{hidden3}}'>
+
+      <cover-view class="content" wx:for="{{node_list.length/2}}" wx:key="item" data-node='{{item}}' bindtap='chooseEnd'>
+        到位置 {{item+1}}
+      </cover-view>
+    </cover-view>
+
+    <cover-image src="/images/shadowBar.png" class="titleShadow" hidden='{{hidden4}}'>     </cover-image>
+    <cover-image src="/images/boxshadow.png" class="BoxShadow" hidden='{{hidden4}}'>     </cover-image>
+    <cover-view class="BoxBottom" hidden='{{hidden4}}'>你的路径是从 {{scan_result}} 到 {{end}}</cover-view>
+    <cover-view class="BoxBottom" style='bottom: 28vw' hidden='{{hidden4}}' bindtap='restart'>重新选择当前地点</cover-view>
+
+
+
+       
+
+</canvas>
+
+
+</view>
